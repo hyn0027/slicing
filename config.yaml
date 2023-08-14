@@ -1,0 +1,32 @@
+SLICING:
+  KEYWORDS_PATH: data/keywords.txt
+  SAMPLE_SIZE: 300
+  OUTPUT_PATH: slicing/result.csv
+  PROMPT_PATH: slicing/
+  DATASET_PATH: hotpotQA.csv
+  PROMPT_TEMPLATES: {
+    "NOUN": "Does this text have {keyword}?",
+    "ADJ": "Is this text {keyword}?",
+    "VERB": "Does the text {keyword}?",
+    "ADP": "Is the text {keyword}?"
+  }
+
+DATA_PROCESS:
+  RESULT_PATH: slicing/result.csv
+  PROMPT_PATH: slicing/
+  KEYWORDS_PATH: data/keywords.txt
+  VALID_KEYWORDS_PATH: data/valid_keywords.txt
+  PROMPT_NUM: 10
+  TMP_PATH: result/tmp.txt
+
+RUN:
+  DATA_PATH: data/hotpot_qa.csv
+  SAMPLE_SIZE: 1500
+  OUTPUT_PATH: result/result
+  CSV_PATH: hotpotQA.csv
+
+LABEL:
+  KEYWORDS_PATH: data/valid_keywords.txt
+  PROMPT_PATH: slicing/
+  RESULT_PATH: hotpotQA.csv
+  OUTPUT_PATH: result/result1.csv
